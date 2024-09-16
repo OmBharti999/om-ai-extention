@@ -7,7 +7,8 @@ import {
   //  Dispatch, SetStateAction,
   useState,
 } from "react";
-import axios from "axios";
+import { getAIResponse, main } from "./config/chatgpt";
+// import axios from "axios";
 
 const DEFAULT_TEXT = `The Paragraph extension is not required, but it's very likely you want to use it. It's needed to write paragraphs of text. 🤓`;
 
@@ -41,21 +42,25 @@ function App() {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post(
-        "https://api.openai.com/v1/completions",
-        {
-          model: "gpt-4o-mini", // or GPT-4 if you have access
-          prompt: text,
-          max_tokens: 100,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer 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`,
-          },
-        }
-      );
-      setResponseText(response.data.choices[0].text);
+      // const response = await axios.post(
+      //   "https://api.openai.com/v1/completions",
+      //   {
+      //     model: "gpt-4o-mini", // or GPT-4 if you have access
+      //     prompt: text,
+      //     max_tokens: 100,
+      //   },
+      //   {
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //       Authorization: `Bearer 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`,
+      //     },
+      //   }
+      // );
+      const res2 = await main();
+      const res = await getAIResponse({ prompt: text });
+      console.log("🚀 ~ handleSubmit ~ res2:", res2)
+      console.log("🚀 ~ handleSubmit ~ res:", res);
+      setResponseText(res);
     } catch (error) {
       console.error("Error with OpenAI API:", error);
     }
