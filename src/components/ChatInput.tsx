@@ -35,7 +35,7 @@ const styles = {
     maxHeight: "200px",
     minHeight: "44px",
     resize: "none" as const,
-    overflowY: "hidden",
+    overflowY: "hidden" as const,
   },
   button: {
     position: "absolute" as const,
