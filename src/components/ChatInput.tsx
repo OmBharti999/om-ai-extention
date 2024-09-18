@@ -5,7 +5,7 @@ import type { Conversations } from "../types";
 const styles = {
   container: {
     color: "white",
-    background: "black",
+    backgroundColor: "#181C14",
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column" as const,
@@ -63,7 +63,8 @@ const styles = {
     width: "100%",
     borderRadius: "0.5rem",
     border: "1px solid #d1d5db",
-    backgroundColor: "white",
+    background: "#343131",
+    color: "white",
     padding: "0.75rem 2.5rem 0.75rem 1rem",
     fontSize: "1rem",
     boxSizing: "border-box" as const,
