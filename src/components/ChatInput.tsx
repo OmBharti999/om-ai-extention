@@ -29,7 +29,7 @@ const styles = {
     padding: "1rem",
     paddingRight: "3rem",
     fontSize: "0.875rem",
-    boxSizing: "border-box",
+    boxSizing: "border-box" as const,
     boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
     outline: "none",
     maxHeight: "200px",
@@ -100,13 +100,7 @@ export default function ChatInput() {
   return (
     <div style={styles.container}>
       <form onSubmit={handleSubmit} style={styles.form}>
-        {
-            error && (
-                <div style={{color: "red"}}>
-                  {error}
-                </div>
-            )
-        }
+        {error && <div style={{ color: "red" }}>{error}</div>}
         <div style={styles.inputWrapper}>
           <textarea
             ref={textareaRef}
