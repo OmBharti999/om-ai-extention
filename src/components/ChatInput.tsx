@@ -11,6 +11,9 @@ const styles = {
     flexDirection: "column" as const,
   },
   chatContainer: {
+    maxWidth: "60rem",
+    width: "100%",
+    margin: "0 auto",
     flex: 1,
     overflowY: "auto" as const,
     padding: "1rem",
